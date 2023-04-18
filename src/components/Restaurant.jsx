@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Res_Api } from "../assets/url";
+import RestaurantContainer from "./RestaurantContainer";
+import { IMG_CDN_URL } from "../assets/url";
 
 const Restaurent = () => {
 
@@ -10,15 +12,17 @@ const Restaurent = () => {
         getRes();
     },[])
 
-    const  getRes = async () => {
+    const getRes = async () => {
         const data = await fetch(Res_Api);
         const json = await data.json();
-        console.log(json.data)
+        console.log(json.data.success.cards[1].gridWidget.gridElements.infoWithStyle.restaurants)
+        setRes(json.data.success.cards[1].gridWidget.gridElements.infoWithStyle.restaurants)
+        
     }
 
     return(
-        <div className="flex justify-center items-center mt-5">
-            <div>
+        <div className=" mt-5">
+            <div className="flex justify-center items-center">
             <input
             type="text"
             name="search"
@@ -30,8 +34,22 @@ const Restaurent = () => {
         <button 
         className="h-14 bg-orange-400 pt-[1px] hover:bg-green-500 transition-colors w-32">
         Search</button>
-
-   </div>
+        </div>
+        <div className="flex flex-wrap gap-10 mt-12 justify-center items-center">
+        {res.map((res) => {
+            return(
+                    <RestaurantContainer
+                    key={res.info.id}
+                    name={res.info.name}
+                    img={IMG_CDN_URL+res.info.cloudinaryImageId}
+                    cuisines={res.info.cuisines}
+                    rating={res.info.avgRating}
+                    price={res.info.costForTwo}
+                    min={res.info.sla.deliveryTime}
+                    />
+            )
+        })}
+        </div>
         </div>
     )
 }
