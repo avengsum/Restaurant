@@ -57,6 +57,7 @@ const Restaurent = () => {
             return(
                     <RestaurantContainer
                     key={filterRes.info.id}
+                    id={filterRes.info.id}
                     name={filterRes.info.name}
                     img={IMG_CDN_URL+filterRes.info.cloudinaryImageId}
                     cuisines={filterRes.info.cuisines}

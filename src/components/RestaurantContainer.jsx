@@ -1,5 +1,8 @@
-const RestaurantContainer = ({name,img,cuisines,rating,min,price}) => {
+import { Link } from "react-router-dom";
+
+const RestaurantContainer = ({name,img,cuisines,rating,min,price,id}) => {
     return(
+        <Link to={'/restaurant/' + id}>
         <div className="min-w-[250px] max-w-[300px] border border-red-600 m-4">
             <div><img src={img} className="w-[250px]" alt="" /></div>
             
@@ -15,6 +18,7 @@ const RestaurantContainer = ({name,img,cuisines,rating,min,price}) => {
                 </div>
             </div>
         </div>
+        </Link>
     )
 
 }
