@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Nav = () => {
     return(
         <nav className="flex items-center justify-between  border-b-blue-800 border-solid">
@@ -8,6 +10,7 @@ const Nav = () => {
                 <li>About</li>
                 <li>Contact</li>
                 <li>Logout</li>
+                <Link to={'/fun'} >Fun</Link>
             </ul>
         </nav>
     )
