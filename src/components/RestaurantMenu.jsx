@@ -2,6 +2,8 @@ import { useParams } from "react-router-dom"
 import { Menu_Api } from "../assets/url";
 import { useEffect, useState } from "react";
 import { IMG_CDN_URL } from "../assets/url";
+import { useDispatch } from "react-redux";
+import { addItem } from "../assets/cartSlice";
 
 const RestaurantMenu = () => {
 
@@ -23,7 +25,12 @@ const RestaurantMenu = () => {
         setHelper(json?.data?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards);
     }
 
-    console.log(helper)
+    const dispatch = useDispatch();
+
+    const handleAdd = (item) => {
+        dispatch(addItem(item))
+    }
+    
 
     return (
         <div>
@@ -41,6 +48,9 @@ const RestaurantMenu = () => {
                         return(
                             <div key={item?.card?.info?.id}>
                                 <h1>{item?.card?.info?.name}</h1>
+
+                                <button onClick={() => handleAdd(item?.card?.info)}
+                                className="bg-green-700">Add</button>
                             </div>
                         )
                     })}
