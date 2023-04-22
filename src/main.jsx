@@ -9,8 +9,7 @@ import RestaurantMenu from './components/RestaurantMenu'
 import Fun from './components/Fun'
 import { Provider } from 'react-redux'
 import store from './assets/store'
-import Cart from './components/CArt'
-
+import Cart from './components/Cart'
 const AppLayout = () => {
   return (
     <Provider store={store} >
