@@ -7,13 +7,18 @@ import Restaurent from './components/Restaurant'
 import Error from './components/Error'
 import RestaurantMenu from './components/RestaurantMenu'
 import Fun from './components/Fun'
+import { Provider } from 'react-redux'
+import store from './assets/store'
+import Cart from './components/CArt'
 
 const AppLayout = () => {
   return (
+    <Provider store={store} >
     <React.Fragment>
       <Nav />
       <Outlet />
     </React.Fragment>
+    </Provider>
   )
 }
 
@@ -34,6 +39,10 @@ const approuter = createBrowserRouter([
     {
       path:'/restaurant/:id',
       element: <RestaurantMenu />
+    },
+    {
+      path:'/cart',
+      element:<Cart />
     },
 
   ]
