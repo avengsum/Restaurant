@@ -1,10 +1,9 @@
-import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import store from "../assets/store";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
 
-    const item = useSelector(store.cart.items)
+    const item = useSelector((store) => store.cart.items);
 
     return(
         <nav className="flex items-center justify-between  border-b-blue-800 border-solid">
@@ -14,7 +13,7 @@ const Nav = () => {
                 <li>Home</li>
                 <li>About</li>
                 <li>Contact</li>
-                <Link to={'/cart'}><li>Cart</li></Link>
+                <Link to={'/cart'}><li>Cart{item.length}</li></Link>
                 <li>Logout</li>
                 <Link to={'/fun'} >Fun</Link>
             </ul>
