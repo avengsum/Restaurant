@@ -6,7 +6,6 @@ import { createBrowserRouter , RouterProvider, Outlet } from 'react-router-dom'
 import Restaurent from './components/Restaurant'
 import Error from './components/Error'
 import RestaurantMenu from './components/RestaurantMenu'
-import Fun from './components/Fun'
 import { Provider } from 'react-redux'
 import store from './assets/store'
 import Cart from './components/Cart'
@@ -30,10 +29,6 @@ const approuter = createBrowserRouter([
     {
       path: '/',
       element : <Restaurent />
-    },
-    {
-      path:'/fun',
-      element:<Fun />
     },
     {
       path:'/restaurant/:id',

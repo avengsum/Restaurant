@@ -19,7 +19,7 @@ const Cart = () => {
 
     return (
         <div>
-            <h1>Cart</h1>
+            <h1 className="text-center text-4xl text-yellow-500">Cart</h1>
             <button onClick={() => ClearCart()}>Clear Cart</button>
             <div>
             {item.map((item) => (
