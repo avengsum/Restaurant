@@ -33,23 +33,23 @@ const RestaurantMenu = () => {
 
     return (
         <div>
-            <div>
-                <img src={IMG_CDN_URL + menu?.cloudinaryImageId} alt="resImage" />
-                {menu?.name}
-                {menu?.city}
-                {menu?.avgRating}
-                {menu?.costForTwo}
+            <div className="flex flex-col items-center justify-center">
+                <img className="rounde-sm shadow-lg" src={IMG_CDN_URL + menu?.cloudinaryImageId} alt="resImage" />
+                <p className="text-2xl">{menu?.name}</p>
+                <p>{menu?.city}</p>
+                <p>{menu?.avgRating}⭐</p>
+                <p>cost for two - {menu?.costForTwo /100} rs</p>
             </div>
-            <div>
-                <h1>Menu</h1>
-                <div >
+            <div className="">
+                <h1 className="text-center text-4xl mt-5">Menu</h1>
+                <div className="" >
                     {helper?.map((item) => {
                         return(
-                            <div key={item?.card?.info?.id}>
-                                <h1>{item?.card?.info?.name}</h1>
+                            <div className="flex items-center gap-[400px] justify-center " key={item?.card?.info?.id}>
+                                <h1 className="text-center text-3xl ">{item?.card?.info?.name}</h1>
 
                                 <button onClick={() => handleAdd(item?.card?.info)}
-                                className="bg-green-700">Add</button>
+                                className="text-green-700 border border-black p-4 mb-4 text-center">Add</button>
                             </div>
                         )
                     })}
